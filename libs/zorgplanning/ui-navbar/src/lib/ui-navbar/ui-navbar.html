@@ -1,0 +1,21 @@
+<nav class="relative bg-blue-500">
+  <div class="mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="flex shrink-0 items-center">
+          <h1 class="text-white font-bold">Zorgplanning casus</h1>
+        </div>
+        <div class="hidden sm:ml-6 sm:block">
+          <div class="flex space-x-4">
+            @for (item of menuItems; track item.url) {
+            <a [routerLink]="item.url" routerLinkActive="bg-gray-950/50"
+              class="rounded-md px-3 py-2 text-sm font-medium hover:bg-white/15 text-white focus:bg-gray-950/50">
+              {{ item.label }}
+            </a>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

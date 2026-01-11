@@ -1,0 +1,21 @@
+{
+  "name": "feature-client-overview",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/zorgplanning/feature-client-overview/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/zorgplanning/feature-client-overview/jest.config.cts",
+        "tsConfig": "libs/zorgplanning/feature-client-overview/tsconfig.spec.json"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

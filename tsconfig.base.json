@@ -15,15 +15,18 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@zorgplanning/feature-shell": [
+        "libs/zorgplanning/feature-shell/src/index.ts"
+      ],
       "@zorgplanning/feature-dashboard": [
         "libs/zorgplanning/feature-dashboard/src/index.ts"
       ],
-      "@zorgplanning/feature-client-detail": [
-        "libs/zorgplanning/feature-client-detail/src/index.ts"
+      "@zorgplanning/ui-navbar": ["libs/zorgplanning/ui-navbar/src/index.ts"],
+      "@zorgplanning/clients/feature-client-detail": [
+        "libs/clients/feature-client-detail/src/index.ts"
       ],
-      "@zorgplanning/ui-navbar": ["libs/ui/ui-navbar/src/index.ts"],
-      "@zorgplanning/feature-shell": [
-        "libs/zorgplanning/feature-shell/src/index.ts"
+      "@zorgplanning/clients/feature-client-overview": [
+        "libs/clients/feature-client-overview/src/index.ts"
       ]
     }
   },

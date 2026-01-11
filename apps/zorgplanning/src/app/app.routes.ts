@@ -1,6 +1,7 @@
 import { Route } from '@angular/router';
 import { FeatureDashboard } from '@zorgplanning/feature-dashboard';
-import { FeatureClientDetail } from '@zorgplanning/feature-client-detail';
+import { FeatureClientDetail } from 'libs/clients/feature-client-detail/src';
+import { FeatureClientOverview } from 'libs/clients/feature-client-overview/src';
 
 export const appRoutes: Route[] = [
   {
@@ -9,12 +10,21 @@ export const appRoutes: Route[] = [
       import('@zorgplanning/feature-shell').then((m) => m.FeatureShell),
     children: [
       {
-        path: 'overview',
+        path: 'dashboard',
         component: FeatureDashboard,
       },
       {
-        path: 'client/:id',
-        component: FeatureClientDetail,
+        path: 'client',
+        children: [
+          {
+            path: 'overview',
+            component: FeatureClientOverview,
+          },
+          {
+            path: 'client/:id',
+            component: FeatureClientDetail,
+          },
+        ],
       },
       {
         path: '**',

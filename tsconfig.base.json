@@ -14,7 +14,18 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@zorgplanning/feature-dashboard": [
+        "libs/zorgplanning/feature-dashboard/src/index.ts"
+      ],
+      "@zorgplanning/feature-client-detail": [
+        "libs/zorgplanning/feature-client-detail/src/index.ts"
+      ],
+      "@zorgplanning/ui-navbar": ["libs/ui/ui-navbar/src/index.ts"],
+      "@zorgplanning/feature-shell": [
+        "libs/zorgplanning/feature-shell/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

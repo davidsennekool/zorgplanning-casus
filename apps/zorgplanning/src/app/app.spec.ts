@@ -1,15 +1,18 @@
-import { TestBed } from '@angular/core/testing';
+import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 import { App } from './app';
+import { inputBinding, Signal, signal } from '@angular/core';
+import { Client } from '@zorgplanning/clients/data-access';
 
 describe('App', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [App],
-    }).compileComponents();
+  let spectator: Spectator<App>;
+
+  const createComponent = createComponentFactory({
+    component: App,
   });
 
-  it('should render title', async () => {
-    const fixture = TestBed.createComponent(App);
-    await fixture.whenStable();
+  beforeEach(() => (spectator = createComponent()));
+
+  it('should have a router-outlet rendered', () => {
+    expect(spectator.query('router-outlet')).toExist();
   });
 });

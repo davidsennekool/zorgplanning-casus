@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Client } from '@zorgplanning/clients/data-access';
 
@@ -6,6 +6,7 @@ import { Client } from '@zorgplanning/clients/data-access';
   selector: 'lib-feature-personal-information-card',
   imports: [DatePipe],
   templateUrl: './feature-personal-information-card.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeaturePersonalInformationCard {
   public client = input<Client | undefined>();

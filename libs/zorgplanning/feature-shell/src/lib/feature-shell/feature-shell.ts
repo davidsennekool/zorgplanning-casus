@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { UiNavbar } from '@zorgplanning/ui-navbar';
 
@@ -6,5 +6,6 @@ import { UiNavbar } from '@zorgplanning/ui-navbar';
   selector: 'lib-feature-shell',
   imports: [RouterOutlet, UiNavbar],
   templateUrl: './feature-shell.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeatureShell {}

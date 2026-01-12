@@ -29,20 +29,4 @@
 </form>
 }
 
-<table class="w-full text-sm text-left rounded-md">
-  <thead class="bg-black/5 border-b border-gray-200 rounded-xl">
-    <tr class="rounded-md">
-      <th class="px-6 py-3 font-medium rounded-tl-md">Care type</th>
-      <th class="px-6 py-3 font-medium">Date</th>
-      <th class="px-6 py-3 font-medium rounded-tr-md">Health care provider</th>
-    </tr>
-  </thead>
-
-  @for (appointment of appointments; track appointment.id; let last = $last) {
-  <tr class="cursor-pointer py-2 hover:bg-gray-100">
-    <td class="px-6 py-3" [class.rounded-bl-md]="last">{{ appointment.careType }}</td>
-    <td class="px-6 py-3">{{ appointment.date | date:'dd/MM/yyyy' }}</td>
-    <td class="px-6 py-3" [class.rounded-br-md]="last">{{ appointment.healthCareProvider }}</td>
-  </tr>
-  }
-</table>
+<lib-feature-appointment-table [appointments]="appointments" />

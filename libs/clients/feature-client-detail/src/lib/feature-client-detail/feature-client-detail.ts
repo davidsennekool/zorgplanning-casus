@@ -13,7 +13,6 @@ import {
 } from '@zorgplanning/clients/data-access';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { DatePipe } from '@angular/common';
 import {
   AbstractControl,
   FormControl,
@@ -25,6 +24,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { UiFormField } from '@zorgplanning/ui-form-field';
+import { FeatureAppointmentTable } from '@zorgplanning/clients/feature-appointment-table';
 
 interface AppointmentForm {
   healthCareProvider: FormControl<string>;
@@ -36,10 +36,10 @@ interface AppointmentForm {
   selector: 'lib-feature-client-detail',
   imports: [
     RouterLink,
-    DatePipe,
     FormsModule,
     ReactiveFormsModule,
     UiFormField,
+    FeatureAppointmentTable,
   ],
   templateUrl: './feature-client-detail.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

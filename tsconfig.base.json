@@ -33,6 +33,9 @@
       ],
       "@zorgplanning/ui-form-field": [
         "libs/zorgplanning/ui-form-field/src/index.ts"
+      ],
+      "@zorgplanning/clients/feature-appointment-table": [
+        "libs/clients/feature-appointment-table/src/index.ts"
       ]
     }
   },

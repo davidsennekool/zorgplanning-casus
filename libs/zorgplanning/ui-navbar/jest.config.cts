@@ -2,7 +2,7 @@ module.exports = {
   displayName: 'ui-navbar',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../coverage/libs/ui/ui-navbar',
+  coverageDirectory: '../../../coverage/libs/zorgplanning/ui-navbar',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

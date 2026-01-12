@@ -1,17 +1,19 @@
 {
   "name": "ui-navbar",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/ui/ui-navbar/src",
+  "sourceRoot": "libs/zorgplanning/ui-navbar/src",
   "prefix": "lib",
   "projectType": "library",
   "tags": [],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
-        "jestConfig": "libs/ui/ui-navbar/jest.config.cts",
-        "tsConfig": "libs/ui/ui-navbar/tsconfig.spec.json"
+        "jestConfig": "libs/zorgplanning/ui-navbar/jest.config.cts",
+        "tsConfig": "libs/zorgplanning/ui-navbar/tsconfig.spec.json"
       }
     },
     "lint": {

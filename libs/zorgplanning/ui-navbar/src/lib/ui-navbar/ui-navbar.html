@@ -3,12 +3,12 @@
     <div class="relative flex h-16 items-center justify-between">
       <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
         <div class="flex shrink-0 items-center">
-          <h1 class="text-white font-bold">Zorgplanning casus</h1>
+          <h1 id="navbar-title" class="text-white font-bold">Zorgplanning casus</h1>
         </div>
         <div class="hidden sm:ml-6 sm:block">
-          <div class="flex space-x-4">
-            @for (item of menuItems; track item.url) {
-            <a [routerLink]="item.url" routerLinkActive="bg-gray-950/50"
+          <div id="navbar-menu-items" class="flex space-x-4">
+            @for (item of menuItems; track item.url; let index = $index) {
+            <a [id]="`navbar-menu-item-${index}`" [routerLink]="item.url" routerLinkActive="bg-gray-950/50"
               class="rounded-md px-3 py-2 text-sm font-medium hover:bg-white/15 text-white focus:bg-gray-950/50">
               {{ item.label }}
             </a>

@@ -1,0 +1,28 @@
+<div class="flex flex-col">
+  @if (label()) {
+  <label [for]="id()" class="text-sm font-semibold pb-2">
+    {{ label() }}
+    @if (required()) {
+    <span>*</span>
+    }
+  </label>
+  }
+
+  <input [id]="id()" [type]="type()" [formControl]="control" [placeholder]="placeholder()"
+    [class.border-red-500]="control.invalid && control.touched"
+    class="p-3 bg-white rounded-sm border border-transparent" />
+
+  @if (control.invalid && control.touched) {
+  <div class="text-red-500 text-sm mt-2">
+    @if (control.errors?.['required']) {
+    <span>{{ label() || 'This field' }} is required</span>
+    }
+    @if (control.errors?.['invalidDate']) {
+    <span>Invalid date format</span>
+    }
+    @if (control.errors?.['notFutureDate']) {
+    <span>Date must be in the future</span>
+    }
+  </div>
+  }
+</div>

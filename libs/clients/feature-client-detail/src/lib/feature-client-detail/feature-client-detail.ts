@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   DestroyRef,
   inject,
@@ -23,6 +24,7 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { UiFormField } from '@zorgplanning/ui-form-field';
 
 interface AppointmentForm {
   healthCareProvider: FormControl<string>;
@@ -32,8 +34,15 @@ interface AppointmentForm {
 
 @Component({
   selector: 'lib-feature-client-detail',
-  imports: [RouterLink, DatePipe, FormsModule, ReactiveFormsModule],
+  imports: [
+    RouterLink,
+    DatePipe,
+    FormsModule,
+    ReactiveFormsModule,
+    UiFormField,
+  ],
   templateUrl: './feature-client-detail.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeatureClientDetail implements OnInit {
   private route = inject(ActivatedRoute);

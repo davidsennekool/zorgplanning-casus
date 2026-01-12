@@ -14,50 +14,15 @@
 @let careTypeControl = appointmentForm.controls.careType;
 
 <form (submit)="createAppointment()" class="bg-gray-200 rounded-md my-4 flex flex-col p-4 gap-y-3">
-  <div class="flex flex-col">
-    <label for="healthCareProvider" class="text-sm font-semibold pb-2">Health care provider</label>
-    <input id="healthCareProvider" type="text" class="p-3 bg-white rounded-sm"
-      [formControl]="healthCareProviderControl">
-    @if (healthCareProviderControl.invalid && healthCareProviderControl.touched) {
-    <div class="text-red-500 text-sm mt-2">
-      @if (healthCareProviderControl.errors?.['required']) {
-      <span>Health care provider is required</span>
-      }
-    </div>
-    }
-  </div>
+  <lib-ui-form-field [control]="dateControl" label="Appointment date" id="appointment-date" [required]="true"
+    type="date" />
 
-  <div class="flex flex-col">
-    <label for="date" class="text-sm font-semibold pb-2">Date</label>
-    <input id="date" type="date" class="p-3 bg-white rounded-sm" [formControl]="dateControl">
+  <lib-ui-form-field [control]="healthCareProviderControl" label="Health care provider"
+    id="appointment-health-care-provider" [required]="true" type="text" placeholder="Zorg Groep Noord-Nederland" />
 
-    @if (dateControl.invalid && dateControl.touched) {
-    <div class="text-red-500 text-sm mt-2">
-      @if (dateControl.errors?.['required']) {
-      <span>Date is required</span>
-      }
-      @if (dateControl.errors?.['invalidDate']) {
-      <span>Invalid date format</span>
-      }
-      @if (dateControl.errors?.['notFutureDate']) {
-      <span>Date must be in the future</span>
-      }
-    </div>
-    }
-  </div>
+  <lib-ui-form-field [control]="careTypeControl" label="Care type" id="appointment-care-type" [required]="true"
+    placeholder="Physical therapy, dental care eg." type="text" />
 
-  <div class="flex flex-col">
-    <label for="careType" class="text-sm font-semibold pb-2">Care type</label>
-    <input id="careType" type="text" class="p-3 bg-white rounded-sm" [formControl]="careTypeControl">
-
-    @if (careTypeControl.invalid && careTypeControl.touched) {
-    <div class="text-red-500 text-sm mt-2">
-      @if (careTypeControl.errors?.['required']) {
-      <span>Care type is required</span>
-      }
-    </div>
-    }
-  </div>
   <button type="submit"
     class="cursor-pointer h-fit bg-blue-400 text-white py-2 px-4 rounded-sm hover:bg-blue-500">Create
     appointment</button>

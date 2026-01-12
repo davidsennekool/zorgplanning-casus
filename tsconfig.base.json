@@ -30,6 +30,9 @@
       ],
       "@zorgplanning/clients/data-access": [
         "libs/clients/data-access/src/index.ts"
+      ],
+      "@zorgplanning/ui-form-field": [
+        "libs/zorgplanning/ui-form-field/src/index.ts"
       ]
     }
   },

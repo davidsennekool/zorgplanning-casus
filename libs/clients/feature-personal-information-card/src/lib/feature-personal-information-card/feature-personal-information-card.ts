@@ -8,5 +8,5 @@ import { Client } from '@zorgplanning/clients/data-access';
   templateUrl: './feature-personal-information-card.html',
 })
 export class FeaturePersonalInformationCard {
-  public client = input.required<Client | undefined>();
+  public client = input<Client | undefined>();
 }

@@ -3,10 +3,66 @@
   <h1 class="text-2xl pb-4 pt-2">Appointments</h1>
 
   <button class="ml-auto cursor-pointer h-fit my-auto bg-blue-400 text-white py-2 px-4 rounded-sm hover:bg-blue-500"
-    (click)="createAppointment()">
+    (click)="toggleAppointmentForm()">
     New appointment
   </button>
 </div>
+
+@if (showAppointmentForm()) {
+@let healthCareProviderControl = appointmentForm.controls.healthCareProvider;
+@let dateControl = appointmentForm.controls.date;
+@let careTypeControl = appointmentForm.controls.careType;
+
+<form (submit)="createAppointment()" class="bg-gray-200 rounded-md my-4 flex flex-col p-4 gap-y-3">
+  <div class="flex flex-col">
+    <label for="healthCareProvider" class="text-sm font-semibold pb-2">Health care provider</label>
+    <input id="healthCareProvider" type="text" class="p-3 bg-white rounded-sm"
+      [formControl]="healthCareProviderControl">
+    @if (healthCareProviderControl.invalid && healthCareProviderControl.touched) {
+    <div class="text-red-500 text-sm mt-2">
+      @if (healthCareProviderControl.errors?.['required']) {
+      <span>Health care provider is required</span>
+      }
+    </div>
+    }
+  </div>
+
+  <div class="flex flex-col">
+    <label for="date" class="text-sm font-semibold pb-2">Date</label>
+    <input id="date" type="date" class="p-3 bg-white rounded-sm" [formControl]="dateControl">
+
+    @if (dateControl.invalid && dateControl.touched) {
+    <div class="text-red-500 text-sm mt-2">
+      @if (dateControl.errors?.['required']) {
+      <span>Date is required</span>
+      }
+      @if (dateControl.errors?.['invalidDate']) {
+      <span>Invalid date format</span>
+      }
+      @if (dateControl.errors?.['notFutureDate']) {
+      <span>Date must be in the future</span>
+      }
+    </div>
+    }
+  </div>
+
+  <div class="flex flex-col">
+    <label for="careType" class="text-sm font-semibold pb-2">Care type</label>
+    <input id="careType" type="text" class="p-3 bg-white rounded-sm" [formControl]="careTypeControl">
+
+    @if (careTypeControl.invalid && careTypeControl.touched) {
+    <div class="text-red-500 text-sm mt-2">
+      @if (careTypeControl.errors?.['required']) {
+      <span>Care type is required</span>
+      }
+    </div>
+    }
+  </div>
+  <button type="submit"
+    class="cursor-pointer h-fit bg-blue-400 text-white py-2 px-4 rounded-sm hover:bg-blue-500">Create
+    appointment</button>
+</form>
+}
 
 <table class="w-full text-sm text-left rounded-md">
   <thead class="bg-black/5 border-b border-gray-200 rounded-xl">

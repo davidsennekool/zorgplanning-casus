@@ -1,8 +1,4 @@
-import {
-  Spectator,
-  createComponentFactory,
-  createRoutingFactory,
-} from '@ngneat/spectator/jest';
+import { Spectator, createRoutingFactory } from '@ngneat/spectator/jest';
 import { UiNavbar } from './ui-navbar';
 
 describe('UiNavbar', () => {

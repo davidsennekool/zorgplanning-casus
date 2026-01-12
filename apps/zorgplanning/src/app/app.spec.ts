@@ -1,7 +1,5 @@
 import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 import { App } from './app';
-import { inputBinding, Signal, signal } from '@angular/core';
-import { Client } from '@zorgplanning/clients/data-access';
 
 describe('App', () => {
   let spectator: Spectator<App>;

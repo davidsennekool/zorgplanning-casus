@@ -13,7 +13,7 @@
     class="p-3 bg-white rounded-sm border border-transparent" />
 
   @if (control.invalid && control.touched) {
-  <div class="text-red-500 text-sm mt-2">
+  <div class="text-red-500 text-sm mt-2 error-message">
     @if (control.errors?.['required']) {
     <span>{{ label() || 'This field' }} is required</span>
     }

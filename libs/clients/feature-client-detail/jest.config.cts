@@ -2,8 +2,7 @@ module.exports = {
   displayName: 'feature-client-detail',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory:
-    '../../../coverage/libs/zorgplanning/feature-client-detail',
+  coverageDirectory: '../../../coverage/libs/clients/feature-client-detail',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

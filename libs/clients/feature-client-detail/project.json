@@ -1,17 +1,19 @@
 {
   "name": "feature-client-detail",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/zorgplanning/feature-client-detail/src",
+  "sourceRoot": "libs/clients/feature-client-detail/src",
   "prefix": "lib",
   "projectType": "library",
   "tags": [],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
-        "jestConfig": "libs/zorgplanning/feature-client-detail/jest.config.cts",
-        "tsConfig": "libs/zorgplanning/feature-client-detail/tsconfig.spec.json"
+        "jestConfig": "libs/clients/feature-client-detail/jest.config.cts",
+        "tsConfig": "libs/clients/feature-client-detail/tsconfig.spec.json"
       }
     },
     "lint": {

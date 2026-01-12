@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Appointment, CreateAppointmentDto } from '../models/appointment.model';
 
@@ -32,12 +32,6 @@ export class ClientAppointmentsService {
 
   public getClientAppointments(clientId: string): Observable<Appointment[]> {
     return of(this.mockAppointments.filter((val) => val.clientId === clientId));
-  }
-
-  public getAppointmentById(id: string): Observable<Appointment> {
-    return of(
-      this.mockAppointments.filter((appointment) => appointment.id === id)[0],
-    );
   }
 
   public createAppointment(

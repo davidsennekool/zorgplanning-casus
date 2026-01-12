@@ -57,8 +57,8 @@ export class FeatureClientDetail implements OnInit {
   protected clientId: string;
   protected client?: Client;
   protected appointments: Appointment[] = [];
-  protected showAppointmentForm: WritableSignal<boolean> = signal(false);
-  protected appointmentForm = new FormGroup<AppointmentForm>({
+  public showAppointmentForm: WritableSignal<boolean> = signal(false);
+  public appointmentForm = new FormGroup<AppointmentForm>({
     healthCareProvider: new FormControl('', {
       validators: Validators.required,
       nonNullable: true,
@@ -97,7 +97,7 @@ export class FeatureClientDetail implements OnInit {
     this.showAppointmentForm.update((state) => !state);
   }
 
-  protected createAppointment(): void {
+  public createAppointment(): void {
     if (!this.appointmentForm.valid) return;
 
     const { healthCareProvider, date, careType } =

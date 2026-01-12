@@ -94,14 +94,24 @@ export class FeatureClientDetail implements OnInit {
       .createAppointment({
         clientId: this.clientId,
         careType: careType.value,
-        date: date.value,
+        date: new Date(date.value),
         healthCareProvider: healthCareProvider.value,
       })
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((appointments) => {
+        this.appointmentForm.reset();
         this.toggleAppointmentForm();
         this.appointments = appointments;
       });
+  }
+
+  protected sortAppointmentsByDate(order: 'asc' | 'desc'): void {
+    this.appointments = this.appointments.sort((a, b) => {
+      if (order === 'desc')
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
+
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
   }
 
   private futureDateValidator(): ValidatorFn {

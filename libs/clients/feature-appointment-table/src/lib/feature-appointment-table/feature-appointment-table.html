@@ -2,7 +2,10 @@
   <thead class="bg-black/5 border-b border-gray-200 rounded-xl">
     <tr class="rounded-md">
       <th class="px-6 py-3 font-medium rounded-tl-md">Care type</th>
-      <th class="px-6 py-3 font-medium">Date</th>
+      <th class="px-6 py-3 font-medium cursor-pointer" (click)="sortAppointments()">Date {{ sortingOrder === 'asc' ?
+        '&blacktriangle;'
+        :
+        '&blacktriangledown;' }}</th>
       <th class="px-6 py-3 font-medium rounded-tr-md">Health care provider</th>
     </tr>
   </thead>

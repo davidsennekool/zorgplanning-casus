@@ -29,4 +29,5 @@
 </form>
 }
 
-<lib-feature-appointment-table [appointments]="appointments" />
+<lib-feature-appointment-table [appointments]="appointments"
+  (sortAppointmentsByDate)="sortAppointmentsByDate($event)" />

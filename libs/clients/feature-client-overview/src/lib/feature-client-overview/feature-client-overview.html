@@ -1,5 +1,21 @@
-@for (client of clients; track client.id) {
-<div class="flex flex-row cursor-pointer" [routerLink]="'../detail/' + client.id">
-  <p>{{ `${client.firstName} ${client.lastName}` }}</p>
-</div>
-}
+<h1 class="text-2xl pb-4">Clients</h1>
+
+<table class="w-full text-sm text-left rounded-md">
+  <thead class="bg-black/5 border-b border-gray-200 rounded-xl">
+    <tr class="rounded-md">
+      <th class="px-6 py-3 font-medium rounded-tl-md">Name</th>
+      <th class="px-6 py-3 font-medium">Email</th>
+      <th class="px-6 py-3 font-medium">Date of birth</th>
+      <th class="px-6 py-3 font-medium rounded-tr-md">Contact person</th>
+    </tr>
+  </thead>
+
+  @for (client of clients; track client.id; let last = $last) {
+  <tr [routerLink]="'../detail/' + client.id" class="cursor-pointer py-2 hover:bg-gray-100">
+    <td class="px-6 py-3" [class.rounded-bl-md]="last">{{ `${client.firstName} ${client.lastName}` }}</td>
+    <td class="px-6 py-3">{{ client.email }}</td>
+    <td class="px-6 py-3">{{ client.dateOfBirth | date:'dd/MM/yyyy' }}</td>
+    <td class="px-6 py-3" [class.rounded-br-md]="last">{{ client.contactPerson }}</td>
+  </tr>
+  }
+</table>

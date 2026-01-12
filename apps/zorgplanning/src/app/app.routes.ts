@@ -21,7 +21,7 @@ export const appRoutes: Route[] = [
             component: FeatureClientOverview,
           },
           {
-            path: 'client/:id',
+            path: 'detail/:id',
             component: FeatureClientDetail,
           },
         ],

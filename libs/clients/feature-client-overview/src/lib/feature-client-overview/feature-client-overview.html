@@ -1,1 +1,5 @@
-<p>FeatureClientOverview works!</p>
+@for (client of clients; track client.id) {
+<div class="flex flex-row cursor-pointer" [routerLink]="'../detail/' + client.id">
+  <p>{{ `${client.firstName} ${client.lastName}` }}</p>
+</div>
+}

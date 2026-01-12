@@ -1,9 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { Client, ClientsService } from '@zorgplanning/clients/data-access';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'lib-feature-client-overview',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './feature-client-overview.html',
-  styleUrl: './feature-client-overview.css',
 })
-export class FeatureClientOverview {}
+export class FeatureClientOverview implements OnInit {
+  private clientsService = inject(ClientsService);
+  private destroyRef = inject(DestroyRef);
+
+  protected clients: Client[] = [];
+
+  public ngOnInit(): void {
+    this.clientsService
+      .getClients()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((clients) => {
+        this.clients = clients;
+      });
+  }
+}

@@ -27,6 +27,9 @@
       ],
       "@zorgplanning/clients/feature-client-overview": [
         "libs/clients/feature-client-overview/src/index.ts"
+      ],
+      "@zorgplanning/clients/data-access": [
+        "libs/clients/data-access/src/index.ts"
       ]
     }
   },

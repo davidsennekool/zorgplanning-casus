@@ -36,6 +36,9 @@
       ],
       "@zorgplanning/clients/feature-appointment-table": [
         "libs/clients/feature-appointment-table/src/index.ts"
+      ],
+      "@zorgplanning/clients/feature-personal-information-card": [
+        "libs/clients/feature-personal-information-card/src/index.ts"
       ]
     }
   },

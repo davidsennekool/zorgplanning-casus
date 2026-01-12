@@ -28,4 +28,8 @@ export class ClientsService {
   public getClients(): Observable<Client[]> {
     return of(this.mockClients);
   }
+
+  public getClientById(id: string): Observable<Client> {
+    return of(this.mockClients.filter((client) => client.id === id)[0]);
+  }
 }

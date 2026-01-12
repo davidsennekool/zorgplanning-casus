@@ -1,0 +1,9 @@
+@if (client()) {
+<h2 class="text-2xl font-semibold mb-2">Client information</h2>
+<div class="bg-black/5 rounded-md p-4">
+  <p><span class="font-semibold">Name: </span>{{ `${client()?.firstName} ${client()?.lastName}`}}</p>
+  <p><span class="font-semibold">Date of birth: </span>{{ client()?.dateOfBirth | date: 'dd/MM/yyyy' }}</p>
+  <p><span class="font-semibold">Email: </span>{{ client()?.email }}</p>
+  <p><span class="font-semibold">Contact person: </span>{{ client()?.contactPerson }}</p>
+</div>
+}

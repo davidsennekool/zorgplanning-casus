@@ -9,7 +9,9 @@ import {
 } from '@angular/core';
 import {
   Appointment,
+  Client,
   ClientAppointmentsService,
+  ClientsService,
 } from '@zorgplanning/clients/data-access';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -25,6 +27,7 @@ import {
 } from '@angular/forms';
 import { UiFormField } from '@zorgplanning/ui-form-field';
 import { FeatureAppointmentTable } from '@zorgplanning/clients/feature-appointment-table';
+import { FeaturePersonalInformationCard } from '@zorgplanning/clients/feature-personal-information-card';
 
 interface AppointmentForm {
   healthCareProvider: FormControl<string>;
@@ -40,16 +43,19 @@ interface AppointmentForm {
     ReactiveFormsModule,
     UiFormField,
     FeatureAppointmentTable,
+    FeaturePersonalInformationCard,
   ],
   templateUrl: './feature-client-detail.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeatureClientDetail implements OnInit {
   private route = inject(ActivatedRoute);
+  private clientsService = inject(ClientsService);
   private clientAppointmentsService = inject(ClientAppointmentsService);
   private destroyRef = inject(DestroyRef);
 
   protected clientId: string;
+  protected client?: Client;
   protected appointments: Appointment[] = [];
   protected showAppointmentForm: WritableSignal<boolean> = signal(false);
   protected appointmentForm = new FormGroup<AppointmentForm>({
@@ -77,6 +83,13 @@ export class FeatureClientDetail implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((appointments) => {
         this.appointments = appointments;
+      });
+
+    this.clientsService
+      .getClientById(this.clientId)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((client: Client) => {
+        this.client = client;
       });
   }
 

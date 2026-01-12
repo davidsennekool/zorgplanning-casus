@@ -5,11 +5,12 @@ import {
   ClientAppointmentsService,
 } from '@zorgplanning/clients/data-access';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'lib-feature-client-detail',
-  imports: [],
+  imports: [RouterLink, DatePipe],
   templateUrl: './feature-client-detail.html',
 })
 export class FeatureClientDetail implements OnInit {

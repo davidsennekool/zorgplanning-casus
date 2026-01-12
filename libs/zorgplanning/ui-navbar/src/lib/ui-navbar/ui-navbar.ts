@@ -14,7 +14,7 @@ export class UiNavbar {
     },
     {
       label: 'Clients',
-      url: '/client/overview',
+      url: '/clients',
     },
   ];
 }

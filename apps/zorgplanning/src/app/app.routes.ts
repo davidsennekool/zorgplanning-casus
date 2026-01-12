@@ -14,15 +14,20 @@ export const appRoutes: Route[] = [
         component: FeatureDashboard,
       },
       {
-        path: 'client',
+        path: 'clients',
         children: [
           {
-            path: 'overview',
+            path: '',
             component: FeatureClientOverview,
           },
           {
-            path: 'detail/:id',
+            path: ':id',
             component: FeatureClientDetail,
+          },
+          {
+            path: '**',
+            redirectTo: '',
+            pathMatch: 'full',
           },
         ],
       },

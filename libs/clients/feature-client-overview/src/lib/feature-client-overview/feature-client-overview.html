@@ -10,7 +10,7 @@
     </tr>
   </thead>
 
-  @for (client of clients; track client.id; let last = $last) {
+  @for (client of clients$ | async; track client.id; let last = $last) {
   <tr [routerLink]="client.id" class="cursor-pointer py-2 hover:bg-gray-100">
     <td class="px-6 py-3" [class.rounded-bl-md]="last">{{ `${client.firstName} ${client.lastName}` }}</td>
     <td class="px-6 py-3">{{ client.email }}</td>

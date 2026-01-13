@@ -1,21 +1,16 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Spectator, createRoutingFactory } from '@ngneat/spectator/jest';
 import { FeatureClientOverview } from './feature-client-overview';
 
 describe('FeatureClientOverview', () => {
-  let component: FeatureClientOverview;
-  let fixture: ComponentFixture<FeatureClientOverview>;
+  let spectator: Spectator<FeatureClientOverview>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [FeatureClientOverview],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(FeatureClientOverview);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
+  const createComponent = createRoutingFactory({
+    component: FeatureClientOverview,
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  beforeEach(() => (spectator = createComponent()));
+
+  it('should create FeatureClientOverview component', () => {
+    expect(spectator.component).toBeTruthy();
   });
 });

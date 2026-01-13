@@ -1,21 +1,16 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Spectator, createRoutingFactory } from '@ngneat/spectator/jest';
 import { FeatureDashboard } from './feature-dashboard';
 
 describe('FeatureDashboard', () => {
-  let component: FeatureDashboard;
-  let fixture: ComponentFixture<FeatureDashboard>;
+  let spectator: Spectator<FeatureDashboard>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [FeatureDashboard],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(FeatureDashboard);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
+  const createComponent = createRoutingFactory({
+    component: FeatureDashboard,
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  beforeEach(() => (spectator = createComponent()));
+
+  it('should create FeatureDashboard component', () => {
+    expect(spectator.component).toBeTruthy();
   });
 });

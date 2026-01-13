@@ -1,21 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 import { UiFormField } from './ui-form-field';
+import { FormControl } from '@angular/forms';
+import { inputBinding, signal } from '@angular/core';
 
 describe('UiFormField', () => {
-  let component: UiFormField;
-  let fixture: ComponentFixture<UiFormField>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [UiFormField],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(UiFormField);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
+  let spectator: Spectator<UiFormField>;
+  const createComponent = createComponentFactory({
+    component: UiFormField,
+    bindings: [
+      inputBinding('control', () => new FormControl('')),
+      inputBinding('label', () => signal('Test label')),
+      inputBinding('type', () => signal('date')),
+      inputBinding('id', () => signal('custom-id')),
+    ],
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  beforeEach(() => (spectator = createComponent()));
+
+  it('should create UiFormField component', () => {
+    expect(spectator.component).toBeTruthy();
   });
 });

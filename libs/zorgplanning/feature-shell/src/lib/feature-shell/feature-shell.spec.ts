@@ -1,21 +1,16 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Spectator, createRoutingFactory } from '@ngneat/spectator/jest';
 import { FeatureShell } from './feature-shell';
 
 describe('FeatureShell', () => {
-  let component: FeatureShell;
-  let fixture: ComponentFixture<FeatureShell>;
+  let spectator: Spectator<FeatureShell>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [FeatureShell],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(FeatureShell);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
+  const createComponent = createRoutingFactory({
+    component: FeatureShell,
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  beforeEach(() => (spectator = createComponent()));
+
+  it('should create FeatureShell component', () => {
+    expect(spectator.component).toBeTruthy();
   });
 });

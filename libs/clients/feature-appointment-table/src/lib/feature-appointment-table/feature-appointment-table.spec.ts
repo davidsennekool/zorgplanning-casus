@@ -1,7 +1,6 @@
 import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 import { FeatureAppointmentTable } from './feature-appointment-table';
-import { FormControl } from '@angular/forms';
-import { inputBinding, signal } from '@angular/core';
+import { inputBinding } from '@angular/core';
 import { Appointment } from '@zorgplanning/clients/data-access';
 
 describe('FeatureAppointmentTable', () => {

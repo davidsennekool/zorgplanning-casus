@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  DestroyRef,
-  inject,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Client, ClientsService } from '@zorgplanning/clients/data-access';
 import { RouterLink } from '@angular/router';
 import { AsyncPipe, DatePipe } from '@angular/common';

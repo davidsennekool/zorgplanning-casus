@@ -43,8 +43,8 @@ The following components need to be tested more thouroughly, but was not possibl
 - `feature-shell`
 - `ui-form-field`
 
-Run the `nx test ${project/library}` to run the unit tests
+Run the `nx test ${project/library}` to run the unit tests, for example:
 
 ```sh
-npx nx test
+npx nx test feature-client-detail`
 ```

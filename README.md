@@ -46,5 +46,5 @@ The following components need to be tested more thouroughly, but was not possibl
 Run the `nx test ${project/library}` to run the unit tests, for example:
 
 ```sh
-npx nx test feature-client-detail`
+npx nx test feature-client-detail
 ```
